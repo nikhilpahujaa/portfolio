@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /cgi-bin/
+Disallow: /pref/
+Disallow: /pref/*
+Sitemap: https://pahuja.dev/sitemap.xml
