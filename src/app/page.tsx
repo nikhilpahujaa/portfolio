@@ -226,7 +226,7 @@ const projects = [
   {
     title: "Personal Portfolio Website",
     description: "A modern, responsive portfolio built with React, Next.js, and Tailwind CSS. Showcases my work, skills, and experience with a clean UI.",
-    link: "#",
+    link: "https://pahuja.vercel.app/",
     github: "https://github.com/nikhilpahujaa/portfolio-New",
     technologies: ["React", "Next.js", "Tailwind CSS", "Vercel"],
   },
