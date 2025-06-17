@@ -25,7 +25,7 @@ const Icon: React.FC<IconProps> = ({ name, className }) => {
 
 const SocialMedia: React.FC = () => {
   return (
-    <div className="flex flex-row gap-4">
+    <div className="flex flex-row gap-4 items-center">
       {socialMedia.map((link) => (
         <Link
           key={link.name}

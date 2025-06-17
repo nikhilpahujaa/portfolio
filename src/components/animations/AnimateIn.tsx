@@ -19,6 +19,7 @@ export function AnimateIn({ children, delay = 0, className = "", variant = "fade
   const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const node = ref.current;
     const timeout = setTimeout(() => {
       setIsVisible(true);
       if (once) setHasAnimated(true);
@@ -40,13 +41,13 @@ export function AnimateIn({ children, delay = 0, className = "", variant = "fade
         { threshold: 0.1 }
       );
 
-      if (ref.current) {
-        observer.observe(ref.current);
+      if (node) {
+        observer.observe(node);
       }
 
       return () => {
-        if (ref.current) {
-          observer.unobserve(ref.current);
+        if (node) {
+          observer.unobserve(node);
         }
         clearTimeout(timeout);
       };

@@ -3,7 +3,7 @@
 import SocialMedia from "@/components/SocialMedia";
 import { ThemeToggle } from "@/components/ThemeToggle";
 import { AnimateIn } from "@/components/animations/AnimateIn";
-import { ExternalLink, ChevronDown, ChevronUp, Mail } from "lucide-react";
+import { ExternalLink, ChevronDown, ChevronUp } from "lucide-react";
 import { useState, useEffect } from "react";
 import Image from "next/image";
 
@@ -29,13 +29,22 @@ export default function Home() {
           </AnimateIn>
           <AnimateIn variant="fadeUp" delay={0.4}>
             <p className="text-sm text-zinc-600 dark:text-zinc-400 max-w-xl mb-6">
-              Software Developer specializing in building scalable APIs and secure backend systems. Experienced with Node.js, Express, and MongoDB, and passionate about delivering robust, high-performance solutions.
+              Software Developer specializing in building scalable APIs and secure backend systems. Experienced with <span className="text-zinc-900 dark:text-zinc-100 font-bold">Node.js</span>, <span className="text-zinc-900 dark:text-zinc-100 font-bold">Express</span>, and <span className="text-zinc-900 dark:text-zinc-100 font-bold">MongoDB</span>, and passionate about delivering robust, high-performance solutions.
             </p>
           </AnimateIn>
 
           <AnimateIn variant="fadeUp" delay={0.6}>
-            <div className="flex items-center gap-5">
+            <div className="flex items-center gap-5 justify-between">
               <SocialMedia />
+              <a
+                href="/Nikhil's Resume.pdf"
+                download
+                className="flex items-center gap-2 px-2 py-1 rounded-md text-zinc-900/60 dark:text-zinc-100/60 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors text-sm font-medium"
+                style={{ textDecoration: "none", background: "none", border: "none", boxShadow: "none" }}
+              >
+                <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V4" /></svg>
+                Resume
+              </a>
             </div>
           </AnimateIn>
         </section>
@@ -79,7 +88,7 @@ export default function Home() {
                           ) : null}
                         </div>
                       </div>
-                      <p className="text-sm text-zinc-500 dark:text-zinc-400 mb-2">{project.description}</p>
+                      <p className="text-sm text-zinc-500 dark:text-zinc-400 mb-2">{project.description.replace("'", "&apos;")}</p>
                       <div className="flex flex-wrap gap-2">
                         {project.technologies.map((tech, techIndex) => (
                           <span key={techIndex} className="text-xs text-zinc-400 dark:text-zinc-500">
@@ -193,7 +202,7 @@ export default function Home() {
           <div className="space-y-6">
             <AnimateIn variant="fadeUp" delay={0.9}>
               <p className="text-sm text-zinc-600 dark:text-zinc-400">
-                I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
+                I&apos;m always open to discussing new projects, creative ideas, or opportunities to be part of your vision.
               </p>
             </AnimateIn>
             <AnimateIn variant="fadeUp" delay={1.0}>
@@ -218,28 +227,28 @@ const projects = [
     title: "Personal Portfolio Website",
     description: "A modern, responsive portfolio built with React, Next.js, and Tailwind CSS. Showcases my work, skills, and experience with a clean UI.",
     link: "#",
-    github: "https://github.com/nikhilpahujaa/portfolio",
+    github: "https://github.com/nikhilpahujaa/portfolio-New",
     technologies: ["React", "Next.js", "Tailwind CSS", "Vercel"],
   },
   {
     title: "Voting App",
     description: "A secure backend API for voting with JWT authentication and robust user management. Built for scalability using Node.js, Express, and MongoDB.",
-    link: "#",
-    github: null,
+    link: null,
+    github: "https://github.com/nikhilpahujaa/voting-app",
     technologies: ["Node.js", "Express", "MongoDB", "JWT"],
   },
   {
     title: "Finance Tracker",
     description: "Backend for a finance app enabling real-time transaction management and analytics. Ensures fast, reliable, and secure data handling.",
-    link: "#",
-    github: null,
+    link: null,
+    github: "https://github.com/nikhilpahujaa/personal-finance-tracker",
     technologies: ["Node.js", "Express", "MongoDB"],
   },
   {
     title: "Hotel Website",
     description: "A responsive front-end for a hotel booking platform. Delivers an intuitive user experience and seamless navigation.",
-    link: "#",
-    github: null,
+    link: "https://nikhilpahujaa.github.io/Hotel-Website/",
+    github: "https://github.com/nikhilpahujaa/Hotel-Website",
     technologies: ["HTML5", "CSS3", "JavaScript"],
   }
 ];
@@ -249,7 +258,7 @@ const experience = [
     role: "Software Developer",
     company: "Shephertz",
     period: "July 2024 - Present",
-    description: "Developed and optimized RESTful APIs using Node.js and Express for the 'Talent Anywhere' project. Implemented JWT-based authentication to ensure secure user access and data privacy across the platform.",
+    description: "Engineered robust backend microservices and core modules for SaaS products WAnywhere and Talent Anywhere, leveraging Node.js, Express, and secure JWT authentication.",
     technologies: ["Node.js", "Express", "RESTful APIs", "JWT"],
   },
   {
@@ -327,7 +336,7 @@ const ContactForm = () => {
   return (
     <form onSubmit={handleSubmit} className="space-y-4 w-full">
       <div>
-        <label htmlFor="senderEmail" className="block text-xs font-medium mb-1 text-zinc-700 dark:text-zinc-200">
+        <label htmlFor="senderEmail" className="block text-sm font-medium mb-1 text-zinc-700 dark:text-zinc-200">
           Your Email
         </label>
         {isMounted && (
@@ -343,7 +352,7 @@ const ContactForm = () => {
         )}
       </div>
       <div>
-        <label htmlFor="message" className="block text-xs font-medium mb-1 text-zinc-700 dark:text-zinc-200">
+        <label htmlFor="message" className="block text-sm font-medium mb-1 text-zinc-700 dark:text-zinc-200">
           Message
         </label>
         <textarea
