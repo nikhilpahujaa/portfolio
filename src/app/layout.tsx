@@ -22,6 +22,7 @@ const RootLayout: React.FC<Props> = ({ children }) => {
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="icon" type="image/png" href="/favicon.png" />
       </head>
       <body className="font-geist-sans bg-white overscroll-none dark:bg-zinc-900">
         <ThemeProvider defaultTheme="light" storageKey="nikhil-theme">
