@@ -313,6 +313,22 @@ const projects = [
     ],
   },
   {
+    title: "AriGato – Learn Japanese with AI",
+    description:
+      "An interactive Japanese learning platform (JLPT N5–N1) with AI-powered pronunciation practice, spaced repetition flashcards, and gamification features including XP system and achievement badges.",
+    link: "https://arigatoo.vercel.app/",
+    github: "https://github.com/nikhilpahujaa/AriGato",
+    technologies: [
+      "React",
+      "TypeScript",
+      "Vite",
+      "Tailwind CSS",
+      "Shadcn/ui",
+      "Framer Motion",
+      "Web Speech API",
+    ],
+  },
+  {
     title: "Personal Portfolio Website",
     description:
       "A modern, responsive portfolio built with React, Next.js, and Tailwind CSS. Showcases my work, skills, and experience with a clean UI.",
