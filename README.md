@@ -10,7 +10,7 @@ A modern, minimalist portfolio website built with **Next.js**, **TypeScript**, a
 
 ## 🚀 Live Demo
 
-**[Visit Portfolio →](https://your-portfolio-url.vercel.app)**
+**[Visit Portfolio →](https://pahuja.vercel.app/)**
 
 ## ✨ Features
 
