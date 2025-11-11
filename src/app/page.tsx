@@ -329,6 +329,23 @@ const projects = [
     ],
   },
   {
+    title: "ExcelHire – AI-Powered Excel Interview Platform",
+    description:
+      "AI-powered Excel assessment platform with conversational evaluations, FastAPI/PostgreSQL backend, and Dockerized deployment.",
+    link: "https://excelhire.vercel.app/",
+    github: "https://github.com/nikhilpahujaa/ExcelHire",
+    technologies: [
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "FastAPI",
+      "Python",
+      "PostgreSQL",
+      "Groq AI",
+      "Docker",
+    ],
+  },
+  {
     title: "Personal Portfolio Website",
     description:
       "A modern, responsive portfolio built with React, Next.js, and Tailwind CSS. Showcases my work, skills, and experience with a clean UI.",

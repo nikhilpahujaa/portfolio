@@ -102,6 +102,8 @@ npm run lint
 portfolio/
 ├── src/
 │   ├── app/                 # App Router pages
+│   │   ├── api/             # API routes
+│   │   │   └── send-email/  # Contact form API
 │   │   ├── contact/         # Contact page
 │   │   ├── links/           # Links page
 │   │   ├── layout.tsx       # Root layout
@@ -116,8 +118,11 @@ portfolio/
 │   ├── lib/                 # Utility libraries
 │   └── utilities/           # Helper functions
 ├── public/                  # Static assets
+│   ├── logos/               # Technology logos
 │   └── Nikhil's Resume.pdf  # Resume file
-├── package.json             # Dependencies
+├── package.json             # Dependencies and scripts
+├── next.config.ts           # Next.js configuration
+├── tsconfig.json           # TypeScript configuration
 └── README.md               # This file
 ```
 
@@ -155,7 +160,8 @@ This portfolio is optimized for deployment on **Vercel**:
 ### Other Deployment Options
 - **Netlify**: Works out of the box
 - **GitHub Pages**: Requires additional configuration for App Router
-- **Docker**: Dockerfile included for containerized deployment
+- **Railway**: Supports Node.js deployments
+- **Render**: Supports Node.js deployments
 
 ## 🎨 Customization
 
@@ -197,12 +203,62 @@ const experience = [
 ## 🔧 Configuration
 
 ### Environment Variables
-Create `.env.local` for contact form functionality:
+
+The contact form requires proper email configuration. Follow these steps:
+
+#### 1. Create Environment File
+Copy the example environment file:
+```bash
+cp .env.example .env.local
 ```
-NEXT_PUBLIC_SITE_URL=https://your-domain.com
-NODEMAILER_EMAIL=your-email@gmail.com
-NODEMAILER_PASSWORD=your-app-password
+
+#### 2. Set up Gmail App Password
+You need to generate an App Password for Gmail (not your regular password):
+
+1. **Enable 2-Factor Authentication** on your Google account (required)
+2. Go to **[Google App Passwords](https://myaccount.google.com/apppasswords)**
+3. Select **App**: Mail
+4. Select **Device**: Other (Custom name) → Enter "Portfolio"
+5. Click **Generate**
+6. Copy the 16-character password
+
+#### 3. Configure Environment Variables
+Edit `.env.local` with your actual values:
+```bash
+# Site Configuration
+NEXT_PUBLIC_SITE_URL=http://localhost:3000
+
+# Email Configuration (Gmail)
+EMAIL_USER=your-email@gmail.com
+EMAIL_PASS=your-16-char-app-password
+EMAIL_TO=recipient@gmail.com  # Optional: defaults to EMAIL_USER
+
+# Development Settings
+NODE_ENV=development
+NEXT_TELEMETRY_DISABLED=1
 ```
+
+#### 4. Test Email Functionality
+Restart your development server after setting up environment variables:
+```bash
+npm run dev
+```
+
+### Troubleshooting Email Issues
+
+**"Missing credentials for PLAIN" Error:**
+- Ensure `EMAIL_USER` and `EMAIL_PASS` are set in `.env.local`
+- Verify you're using an App Password, not your regular Gmail password
+- Make sure 2-Factor Authentication is enabled on your Google account
+
+**"Invalid login" Error:**
+- Double-check your App Password is correct
+- Ensure the email address matches your Google account
+- Try generating a new App Password
+
+**Network/Connection Errors:**
+- Check your internet connection
+- Verify Gmail SMTP isn't blocked by your firewall
 
 ### Next.js Config
 Customize `next.config.ts` for additional optimizations.
