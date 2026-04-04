@@ -21,9 +21,11 @@ A modern, minimalist portfolio website built with **Next.js**, **TypeScript**, a
 - **🎭 Smooth Animations**: Powered by Framer Motion for engaging user experience
 - **📄 Resume Download**: Direct download link for my latest resume
 - **🔗 Social Links**: Easy access to GitHub, LinkedIn, and other profiles
-- **💼 Projects Showcase**: Detailed project descriptions with live demos and GitHub links
-- **🏢 Experience Timeline**: Professional experience with technologies used
+- **💼 Projects Showcase**: Expandable projects grid with live demos and GitHub links (shows 4 initially with expand/collapse)
+- **🏢 Experience Timeline**: Professional experience with technologies used and expand/collapse view
 - **📧 Contact Form**: Built-in contact functionality
+- **🎬 Staggered Animations**: Smooth reveal animations for projects and skills
+- **📊 Featured Projects**: FinSight financial dashboard, database migration tools, and more
 
 ## 🛠️ Tech Stack
 
@@ -44,6 +46,27 @@ A modern, minimalist portfolio website built with **Next.js**, **TypeScript**, a
 ### Deployment
 - **Vercel** - Optimal hosting for Next.js applications
 - **GitHub Actions** - Automated CI/CD pipeline
+
+## 📦 Featured Projects
+
+### FinSight – Enterprise Financial Management Dashboard
+- Real-time financial transaction tracking and analytics
+- Role-Based Access Control (RBAC) with 3 user tiers
+- Interactive charts powered by Recharts
+- Secure JWT authentication
+- Firebase Firestore integration
+- **Stack**: React, TypeScript, Node.js, Express, Docker
+- **[Visit FinSight →](https://finsighttt.vercel.app/)**
+
+### DataFlow – Database Migration Studio
+- Automated MySQL to PostgreSQL/MongoDB migration
+- **Stack**: React.js, FastAPI, Python, MySQL, PostgreSQL
+
+### AriGato – Learn Japanese with AI
+- Interactive JLPT learning platform
+- **Stack**: React, TypeScript, Vite, Web Speech API
+
+[View all projects →](https://pahuja.vercel.app/)
 
 ## 🏃‍♂️ Quick Start
 
@@ -130,9 +153,10 @@ portfolio/
 
 ### Home Page (`src/app/page.tsx`)
 - Personal introduction and bio
-- Featured projects with links
-- Professional experience timeline
+- Featured projects with expandable/collapsible grid (4 shown initially)
+- Professional experience timeline with expand/collapse
 - Social media and resume links
+- Animated skill/tools showcase with logos
 
 ### Theme System
 - Dark/light mode toggle
@@ -166,7 +190,7 @@ This portfolio is optimized for deployment on **Vercel**:
 ## 🎨 Customization
 
 ### Adding New Projects
-Edit the `projects` array in `src/app/page.tsx`:
+Edit the `projects` array in `src/app/page.tsx`. The projects grid shows 4 projects initially with an expandable dropdown:
 
 ```typescript
 const projects = [
@@ -178,10 +202,15 @@ const projects = [
     link: "https://project-demo.com"
   }
 ];
+
+// Projects expansion is controlled by state
+const [isProjectsExpanded, setIsProjectsExpanded] = useState(false);
+const initialProjectCount = 4; // Shows first 4 projects
+const visibleProjects = isProjectsExpanded ? projects : projects.slice(0, initialProjectCount);
 ```
 
 ### Updating Experience
-Modify the `experience` array in `src/app/page.tsx`:
+Similarly, modify the `experience` array in `src/app/page.tsx` with expandable behavior:
 
 ```typescript
 const experience = [
@@ -193,12 +222,28 @@ const experience = [
     technologies: ["Tech1", "Tech2"]
   }
 ];
+
+const initialExperienceCount = 2; // Shows first 2 experiences
 ```
 
+### Updating Resume
+Replace the resume file at `public/Nikhil's Resume.pdf` with your own resume. The download link in the header will automatically point to it.
+
 ### Styling
-- **Colors**: Modify Tailwind classes in components
+- **Colors**: Modify Tailwind classes in components (using zinc color palette for minimalist aesthetic)
 - **Fonts**: Update font imports in `layout.tsx`
-- **Animations**: Customize in `src/components/animations/`
+- **Animations**: Customize animation variants in `src/components/animations/AnimateIn.tsx`
+- **Dark Mode**: Automatically handled with Tailwind's dark: prefix
+
+### Tools & Skills Display
+Add or modify tools logos in the `tools` array:
+```typescript
+const tools = [
+  { logo: "/logos/nextjs.svg", title: "Next.js" },
+  // Add more tools here
+];
+```
+Place logo files in `public/logos/`
 
 ## 🔧 Configuration
 
