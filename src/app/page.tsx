@@ -8,10 +8,9 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 
 export default function Home() {
-  // const [isProjectsExpanded, setIsProjectsExpanded] = useState(false);
-  // const initialProjectCount = 2;
-  // const visibleProjects = isProjectsExpanded ? projects : projects.slice(0, initialProjectCount);
-  const visibleProjects = projects;
+  const [isProjectsExpanded, setIsProjectsExpanded] = useState(false);
+  const initialProjectCount = 4;
+  const visibleProjects = isProjectsExpanded ? projects : projects.slice(0, initialProjectCount);
 
   const [isExperienceExpanded, setIsExperienceExpanded] = useState(false);
   const initialExperienceCount = 2;
@@ -145,7 +144,7 @@ export default function Home() {
                 );
               })}
             </ul>
-            {/* {projects.length > initialProjectCount && (
+            {projects.length > initialProjectCount && (
               <button
                 onClick={() => setIsProjectsExpanded(!isProjectsExpanded)}
                 className="flex items-center gap-2 text-sm text-zinc-500 dark:text-zinc-400 hover:text-zinc-900 dark:hover:text-zinc-100 transition-colors mx-auto"
@@ -160,7 +159,7 @@ export default function Home() {
                   </>
                 )}
               </button>
-            )} */}
+            )}
           </div>
         </section>
       </AnimateIn>
@@ -296,6 +295,25 @@ export default function Home() {
 }
 
 const projects = [
+  {
+    title: "FinSight – Enterprise Financial Management Dashboard",
+    description:
+      "An enterprise-grade financial management dashboard with real-time transaction tracking, advanced analytics, and role-based access control. Features interactive charts, soft-delete audit trails, and secure JWT authentication.",
+    link: "https://finsighttt.vercel.app",
+    github: "https://github.com/nikhilpahujaa/FinSight",
+    technologies: [
+      "React",
+      "TypeScript",
+      "Vite",
+      "Tailwind CSS",
+      "Recharts",
+      "Node.js",
+      "Express",
+      "Firebase Firestore",
+      "JWT",
+      "Docker",
+    ],
+  },
   {
     title: "DataFlow – Database Migration Studio",
     description:
