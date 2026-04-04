@@ -335,10 +335,10 @@ This project is open source and available under the [MIT License](LICENSE).
 **Nikhil Pahuja** - Software Developer specializing in building scalable APIs and secure backend systems. Experienced with Node.js, Express, and MongoDB, passionate about delivering robust, high-performance solutions.
 
 ### Connect with me:
-- 🌐 **Portfolio**: [your-portfolio-url.com](https://your-portfolio-url.com)
-- 💼 **LinkedIn**: [linkedin.com/in/yourprofile](https://linkedin.com/in/yourprofile)
+- 🌐 **Portfolio**: [https://pahuja.vercel.app/](https://your-portfolio-url.com)
+- 💼 **LinkedIn**: [linkedin.com/in/nikhilpahujaa](https://linkedin.com/in/yourprofile)
 - 🐙 **GitHub**: [github.com/nikhilpahujaa](https://github.com/nikhilpahujaa)
-- 📧 **Email**: your.email@example.com
+- 📧 **Email**: nikhilpahuja75@gmal.com
 
 ---
 
